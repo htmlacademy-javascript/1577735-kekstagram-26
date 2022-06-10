@@ -4,14 +4,13 @@ const submitButton = document.querySelector('.social__footer-btn');
 
 function randomeInteger(min,max){
   if(min>max){
-    // eslint-disable-next-line no-alert
-    alert('Так не бывает');
+    return `Минимальное значение ${min} не может превышать максимальное значение ${max}`;
   }else{
     const rand=min+Math.random()*(max-min);
     return Math.round(rand);
   }
 }
-randomeInteger(0,7);
+randomeInteger(7,4);
 
 function commentLength(){
   if (commentField.value.length>maxLength) {
