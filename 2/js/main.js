@@ -1,20 +1,21 @@
-const commentField = document.querySelector('.social__footer-text');
-const maxLength = 140;
-const submitButton = document.querySelector('.social__footer-btn');
+const STRING=' ';
+const MAX_LENGTH = 140;
 
-function randomeInteger(min,max){
-  if(min>max){
+function getRandomInt(min,max){
+  if(min>max||max<=0){
     return `Минимальное значение ${min} не может превышать максимальное значение ${max}`;
   }else{
-    const rand=min+Math.random()*(max-min);
-    return Math.round(rand);
+    const RAND=min+Math.random()*(max-min);
+    return Math.round(RAND);
   }
 }
-randomeInteger(7,4);
+getRandomInt(7,4);
 
-function commentLength(){
-  if (commentField.value.length>maxLength) {
-    submitButton.disabled=true;
+function getLengthLine(string,length){
+  if(string<=length){
+    return 'true';
+  }else{
+    return 'false';
   }
 }
-commentLength(commentField,150);
+getLengthLine(STRING,MAX_LENGTH);
