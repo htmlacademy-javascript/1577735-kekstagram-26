@@ -43,37 +43,59 @@ const MESSAGE=[
 ];
 
 //Массив чисел для ID
-const NUMBER=Array.from({length: 25},(_v, i)=>(i+1));
+const numbers=[];
+for(let i=1;i<=25;i++){
+  numbers.push(i);
+}
 
 //Массив чисел для фото
-const PHOTO=Array.from({length: 25},(_v, i)=>(i+1));
+const photos=[];
+for(let i=1;i<=25;i++){
+  photos.push(i);
+}
 
 //Массив для ID комментария
-const commentId=[];
+const commentIDs=[];
 for(let i=150;i<1000;i++){
-  commentId.push(i);
+  commentIDs.push(i);
 }
 
 //Функция по поиску случайного не повторяющегося элемента
+
 const getRandomNumber = (elements) => elements.splice(Math.random()*elements.length, 1)[0];
+
 
 //Функция по поиску случайного элемента в переданном массиве
 const getRandomArrayElement = (elements) => elements[getRandomInt(0, elements.length - 1)];
 
-//Сборка одного элемента массива
-const OBJECT =()=>({
-  id:getRandomNumber(NUMBER),
-  url:`photos/${getRandomNumber(PHOTO)}.jpg`,
-  description:'описание фотографии',
-  likes:getRandomInt(15,200),
-  comments:{
-    id:getRandomNumber(commentId),
-    avatar:`img/avatar-${getRandomInt(1,6)}.svg`,
-    message:getRandomArrayElement(MESSAGE),
-    name:getRandomArrayElement(NAMES)
-  }
+//Создаёт комментарий
+const getСomment =()=>({
+  id:getRandomNumber(commentIDs),
+  avatar:`img/avatar-${getRandomInt(1,6)}.svg`,
+  message:getRandomArrayElement(MESSAGE),
+  name:getRandomArrayElement(NAMES)
 });
 
-// Генерация масива
-const ARRAY_OBJECT=Array.from({length:25},OBJECT);
+//Генерация комментариев
+const getRandomQuantityComments=()=>{
+  if(Math.random()<0.5){
+    return Array.from({length:1},getСomment);
+  }else{
+    return Array.from({length:2},getСomment);
+  }
+};
 
+//Создаёт один элемент массива
+const getPost =()=>({
+  id:getRandomNumber(numbers),
+  url:`photos/${getRandomNumber(photos)}.jpg`,
+  description:'описание фотографии',
+  likes:getRandomInt(15,200),
+  comments:getRandomQuantityComments()
+});
+
+
+// Создаёт пОсты
+const getManyPosts=()=>Array.from({length:25},getPost);
+
+getManyPosts();
