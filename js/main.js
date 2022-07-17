@@ -1,4 +1,4 @@
 import {getSomePictures} from './mini-picture.js';
-
-getSomePictures();
+import {getManyPosts} from './posts.js';
+getSomePictures(getManyPosts());
 

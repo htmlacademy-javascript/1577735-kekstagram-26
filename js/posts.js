@@ -63,7 +63,7 @@ const getRandomQuantityComments=()=>{
 //Создаёт один элемент массива
 const getPost =()=>({
   id:getRandomNumber(numbers),
-  url:`photos/${getRandomNumber(photos)}.jpg`,
+  url:`/photos/${getRandomNumber(photos)}.jpg`,
   description:'описание фотографии',
   likes:getRandomInt(15,200),
   comments:getRandomQuantityComments()
