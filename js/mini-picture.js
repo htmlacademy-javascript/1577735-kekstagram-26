@@ -1,17 +1,21 @@
-import {getManyPosts} from './posts';
+import {getManyPosts} from './posts.js';
 
 const picturesContainer=document.querySelector('.pictures');
-const picture=document.querySelector('#picture').content.querySelector('a');
+const picture=document.querySelector('#picture').content;
+const inPicture=picture.querySelector('.picture');
 
 const similarPost=getManyPosts();
 
 const similarPostFragment=document.createDocumentFragment();
 similarPost.forEach(({url,likes,comments})=>{
-  const postElement=picture.cloneNode(true);
-  postElement.querySelector('src').textContent=url;
+  const postElement=inPicture.cloneNode(true);
+  postElement.setAttribute('src',url);
   postElement.querySelector('.picture__likes').textContent=likes;
-  postElement.querySelector('.pictire__comments').textContent=comments;
+  postElement.querySelector('.picture__comments').textContent=comments.length;
   similarPostFragment.appendChild(postElement);
 });
 
-picturesContainer.appendChild(similarPostFragment);
+
+const getSomePictures=()=>picturesContainer.appendChild(similarPostFragment);
+
+export {getSomePictures};

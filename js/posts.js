@@ -1,6 +1,6 @@
 import {getRandomInt} from './random-integer.js';
-import {getRandomNumber} from './random-number';
-import {getRandomArrayElement} from './random-array-element';
+import {getRandomNumber} from './random-number.js';
+import {getRandomArrayElement} from './random-array-element.js';
 
 // Набор имён для комментаторов
 const NAMES = [

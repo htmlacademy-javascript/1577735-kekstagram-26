@@ -1,5 +1,4 @@
-import {getManyPosts} from './posts';
-import {getSomePictures} from './mini-picture';
+import {getSomePictures} from './mini-picture.js';
 
 getSomePictures();
-getManyPosts();
+
