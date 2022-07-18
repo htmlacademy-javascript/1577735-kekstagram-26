@@ -1,6 +1,6 @@
 import {getRandomInt} from './random-integer.js';
-import {getRandomNumber} from './random-number';
-import {getRandomArrayElement} from './random-array-element';
+import {getRandomNumber} from './random-number.js';
+import {getRandomArrayElement} from './random-array-element.js';
 
 // Набор имён для комментаторов
 const NAMES = [
@@ -63,7 +63,7 @@ const getRandomQuantityComments=()=>{
 //Создаёт один элемент массива
 const getPost =()=>({
   id:getRandomNumber(numbers),
-  url:`photos/${getRandomNumber(photos)}.jpg`,
+  url:`/photos/${getRandomNumber(photos)}.jpg`,
   description:'описание фотографии',
   likes:getRandomInt(15,200),
   comments:getRandomQuantityComments()
